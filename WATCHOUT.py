@@ -20,7 +20,6 @@ def terminate():
     pygame.quit()
     sys.exit()
 
-
 def waitForPlayerToPressKey():
     while True:
         for event in pygame.event.get():
@@ -30,7 +29,6 @@ def waitForPlayerToPressKey():
                 if event.key == K_ESCAPE: # pressing escape quits
                     terminate()
                 return
-
 
 def drawText(text, font, surface, x, y):
     textobj = font.render(text, 1, (255, 255, 255))
@@ -50,11 +48,11 @@ pygame.init()
 DISPLAYSURF = pygame.display.set_mode((WINDOW_HEIGHT, WINDOW_WIDTH))
 pygame.display.set_caption("WATCHOUT!")
 pygame.mouse.set_visible(False)
-
+playerImage = pygame.image.load('kendrickFace.jpg')
 
 # Sounds
-pygame.mixer.music.load('massAppeal.mp3')
-gameOver = pygame.mixer.Sound('massAppeal.mp3')
+pygame.mixer.music.load('itAintHardToTell.mp3')
+#gameOver = pygame.mixer.Sound('itAintHardToTell.mp3')
 
 # Font
 font = pygame.font.SysFont(None, 48)
@@ -76,7 +74,7 @@ while True:
     reverseCheat = slowCheat = False
 
     enemyAddCounter = 0
-    pygame.mixer.music.play(-1, 0.0)
+    pygame.mixer.music.play(-1, 0)
 
     font.render("Welcome to the show", 1, (255, 255, 255))
     while True:
@@ -84,6 +82,47 @@ while True:
         for event in pygame.event.get():
             if event.type == QUIT:
                 terminate()
+
+            if event.type == KEYDOWN:
+                if event.key == ord('z'):
+                    reverseCheat = True
+                if event.key == ord('x'):
+                    slowCheat = True
+                if event.key == K_LEFT or event.key == ord('a'):
+                    moveRight = False
+                    moveLeft = True
+                if event.key == K_RIGHT or event.key == ord('d'):
+                    moveLeft = False
+                    moveRight = True
+                if event.key == K_UP or event.key == ord('w'):
+                    moveDown = False
+                    moveUp = True
+                if event.key == K_DOWN or event.key == ord('s'):
+                    moveUp = False
+                    moveDown = True
+
+            if event.type == KEYUP:
+                if event.key == ord('z'):
+                    reverseCheat = False
+                    score = 0
+                if event.key == ord('x'):
+                    slowCheat = False
+                    score = 0
+                if event.key == K_ESCAPE:
+                    terminate()
+                if event.key == K_LEFT or event.key == ord('a'):
+                    moveLeft = False
+                if event.key == K_RIGHT or event.key == ord('d'):
+                    moveRight = False
+                if event.key == K_UP or event.key == ord('w'):
+                    moveUp = False
+                if event.key == K_DOWN or event.key == ord('s'):
+                    moveDown = False
+
+            if event.type == MOUSEMOTION:
+                # If the mouse moves, move the player where the cursor is.
+                playerRect.move_ip(event.pos[0] - playerRect.centerx, event.pos[1] - playerRect.centery)
+
         pygame.display.update()
 
         break
