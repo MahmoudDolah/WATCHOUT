@@ -3,18 +3,17 @@ import sys
 from pygame.locals import*
 
 # Constants
-WINDOW_WIDTH = 700
 WINDOW_HEIGHT = 700
+WINDOW_WIDTH = 700
 TEXT_COLOR = (255, 255, 255)
 BACKGROUND_COLOR = (0, 0, 0)
 FPS = 40
 ROCK_IN_SIZE = 10
 ROCK_MAX_SIZE = 40
 ROCK_MIN_SPEED = 1
-ROCK_MAX_SPEED = 8
-ADD_NEW_ROCK_RATE = 6
+ROCK_MAX_SPEED = 7
+ADD_NEW_ROCK_RATE = 5
 PLAYER_MOVE_RATE = 5
-
 
 def terminate():
     pygame.quit()
@@ -45,10 +44,10 @@ def playerHitEnemy(playerRect, enemies):
 
 # Game Initialization
 pygame.init()
+theClock = pygame.time.Clock()
 DISPLAYSURF = pygame.display.set_mode((WINDOW_HEIGHT, WINDOW_WIDTH))
 pygame.display.set_caption("WATCHOUT!")
 pygame.mouse.set_visible(False)
-playerImage = pygame.image.load('kendrickFace.jpg')
 
 # Sounds
 pygame.mixer.music.load('itAintHardToTell.mp3')
@@ -59,6 +58,7 @@ font = pygame.font.SysFont(None, 48)
 DISPLAYSURF.fill(BACKGROUND_COLOR)
 
 # Set up images
+playerImage = pygame.image.load('kendrickFace.jpg')
 playerRect = playerImage.get_rect()
 
 # Start Screen
@@ -67,18 +67,22 @@ drawText('Press any key to start.', font, DISPLAYSURF, (WINDOW_WIDTH / 3) - 30, 
 pygame.display.update()
 waitForPlayerToPressKey()
 
+topScore = 0
 while True:
+    score = 0
     enemies = []
     playerRect.topleft = (WINDOW_WIDTH / 2, WINDOW_HEIGHT - 50)
     moveLeft = moveRight = moveUp = moveDown = False
     reverseCheat = slowCheat = False
 
     enemyAddCounter = 0
-    pygame.mixer.music.play(-1, 0)
+    pygame.mixer.music.play(-1, 0.0)
 
     font.render("Welcome to the show", 1, (255, 255, 255))
     while True:
     # While game is being played, this loop runs
+        score += 1 #increase score every second
+
         for event in pygame.event.get():
             if event.type == QUIT:
                 terminate()
@@ -122,6 +126,21 @@ while True:
             if event.type == MOUSEMOTION:
                 # If the mouse moves, move the player where the cursor is.
                 playerRect.move_ip(event.pos[0] - playerRect.centerx, event.pos[1] - playerRect.centery)
+
+        if not reverseCheat and not slowCheat:
+            enemyAddCounter += 1
+
+        if enemyAddCounter == ADD_NEW_ROCK_RATE:
+            enemyAddCounter = 0
+            enemySize = random.randint(ROCK_IN_SIZE, ROCK_MAX_SIZE)
+            newEnemy = {'rect':pygame.Rect(random.randint(0, WINDOW_WIDTH-enemySize), 0 - enemySize, enemySize, enemySize),
+            'speed':random.randint(ROCK_MIN_SPEED, ROCK_MAX_SPEED),
+            'surface':pygame.transform.scale(enemyImage, (enemySize, enemySize)),
+            }
+        enemies.append(newEnemy)
+
+        if moveLeft and playerRect.left > 0:
+            playerRect.move_ip(-1*PLAYER_MOVE_RATE, 0)
 
         pygame.display.update()
 
