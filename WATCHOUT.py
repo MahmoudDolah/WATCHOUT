@@ -64,7 +64,6 @@ drawText('Press a key to start.', font, windowSurface, (WINDOWWIDTH / 3) - 30, (
 pygame.display.update()
 waitForPlayerToPressKey()
 
-
 topScore = 0
 while True:
     # set up the start of the game
