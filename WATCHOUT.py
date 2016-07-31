@@ -50,8 +50,8 @@ pygame.mouse.set_visible(False)
 font = pygame.font.SysFont(None, 48)
 
 # set up sounds
-#gameOverSound = pygame.mixer.Sound('gameover.wav')
-pygame.mixer.music.load('itAintHardToTell.mp3')
+gameOverSound = pygame.mixer.Sound('alright.mp3')
+pygame.mixer.music.load('maadCity.mp3')
 
 # set up images
 playerImage = pygame.image.load('kendrickFace.png')
@@ -189,11 +189,11 @@ while True:
 
     # Stop the game and show the "Game Over" screen.
     pygame.mixer.music.stop()
-#    gameOverSound.play()
+    gameOverSound.play()
 
     drawText('GAME OVER', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
     drawText('Press a key to play again.', font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 50)
     pygame.display.update()
     waitForPlayerToPressKey()
 
-#    gameOverSound.stop()
+    gameOverSound.stop()
