@@ -54,7 +54,7 @@ font = pygame.font.SysFont(None, 48)
 pygame.mixer.music.load('itAintHardToTell.mp3')
 
 # set up images
-playerImage = pygame.image.load('kendrickFace.jpg')
+playerImage = pygame.image.load('kendrickFace.png')
 playerRect = playerImage.get_rect()
 baddieImage = pygame.image.load('screamingFan.png')
 
