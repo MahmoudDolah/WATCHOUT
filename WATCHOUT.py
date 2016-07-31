@@ -54,12 +54,12 @@ font = pygame.font.SysFont(None, 48)
 pygame.mixer.music.load('itAintHardToTell.mp3')
 
 # set up images
-playerImage = pygame.image.load('player.png')
+playerImage = pygame.image.load('kendrickFace.jpg')
 playerRect = playerImage.get_rect()
-baddieImage = pygame.image.load('baddie.png')
+baddieImage = pygame.image.load('screamingFan.png')
 
 # show the "Start" screen
-drawText('Dodger', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
+drawText('WATCHOUT', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
 drawText('Press a key to start.', font, windowSurface, (WINDOWWIDTH / 3) - 30, (WINDOWHEIGHT / 3) + 50)
 pygame.display.update()
 waitForPlayerToPressKey()
@@ -190,7 +190,7 @@ while True:
 
     # Stop the game and show the "Game Over" screen.
     pygame.mixer.music.stop()
-    gameOverSound.play()
+#    gameOverSound.play()
 
     drawText('GAME OVER', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
     drawText('Press a key to play again.', font, windowSurface, (WINDOWWIDTH / 3) - 80, (WINDOWHEIGHT / 3) + 50)
