@@ -1,8 +1,8 @@
 import pygame, random, sys
 from pygame.locals import *
 
-WINDOWWIDTH = 600
-WINDOWHEIGHT = 600
+WINDOWWIDTH = 800
+WINDOWHEIGHT = 800
 TEXTCOLOR = (255, 255, 255)
 BACKGROUNDCOLOR = (0, 0, 0)
 FPS = 40
@@ -43,14 +43,13 @@ def drawText(text, font, surface, x, y):
 pygame.init()
 mainClock = pygame.time.Clock()
 windowSurface = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
-pygame.display.set_caption('Dodger')
+pygame.display.set_caption('WATCHOUT!!!')
 pygame.mouse.set_visible(False)
 
 # set up fonts
 font = pygame.font.SysFont(None, 48)
 
 # set up sounds
-gameOverSound = pygame.mixer.Sound('alright.mp3')
 pygame.mixer.music.load('maadCity.mp3')
 
 # set up images
