@@ -53,7 +53,7 @@ font = pygame.font.SysFont(None, 48)
 pygame.mixer.music.load('maadCity.mp3')
 
 # set up images
-playerImage = pygame.image.load('kendrickFace.png')
+playerImage = pygame.image.load('kendrickLamar.png')
 playerRect = playerImage.get_rect()
 fanImage = pygame.image.load('screamingFan.png')
 
