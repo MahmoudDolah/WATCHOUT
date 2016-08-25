@@ -10,4 +10,4 @@ Simply go into a terminal and enter the command:
 ```bash                     
 python WATCHOUT.py                    
 ```
-![Have fun!](http://imgur.com/a/h5Svy "Have fun!")
+![Have fun!](<blockquote class="imgur-embed-pub" lang="en" data-id="a/h5Svy"><a href="//imgur.com/h5Svy"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script> "Have fun!")
