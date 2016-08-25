@@ -10,4 +10,4 @@ Simply go into a terminal and enter the command:
 ```bash                     
 python WATCHOUT.py                    
 ```
-[Have fun](http://imgur.com/a/h5Svy)
+![Have fun!](http://imgur.com/a/h5Svy "Have fun!")
