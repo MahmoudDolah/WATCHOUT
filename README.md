@@ -6,9 +6,9 @@ It builds and works, but it is still a work in progress.
 
 Requires Python 2.7 as a prerequisite. 
 
-Simply go into a terminal and enter the command:
+Simply go into a terminal and enter the command:                     
 '''
-python WATCHOUT.py
+python WATCHOUT.py                    
 '''
 Have fun
 
