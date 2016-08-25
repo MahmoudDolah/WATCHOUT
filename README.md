@@ -10,6 +10,4 @@ Simply go into a terminal and enter the command:
 ```bash                     
 python WATCHOUT.py                    
 ```
-Have fun
-
-Based on the dodger game found here: https://inventwithpython.com/chapter20.html
+[Have fun](http://imgur.com/a/h5Svy)
