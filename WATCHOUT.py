@@ -50,7 +50,11 @@ pygame.mouse.set_visible(False)
 font = pygame.font.SysFont(None, 48)
 
 # set up sounds
-pygame.mixer.music.load('maadCity.mp3')
+num = random.randint(0, 1)
+if num == 0:
+    pygame.mixer.music.load('maadCity.mp3')
+else:
+    pygame.mixer.music.load('alright.mp3')
 
 # set up images
 playerImage = pygame.image.load('kendrickLamar.png')
