@@ -52,14 +52,14 @@ font = pygame.font.SysFont(None, 48)
 # set up sounds
 num = random.randint(0, 1)
 if num == 0:
-    pygame.mixer.music.load('maadCity.mp3')
+    pygame.mixer.music.load('songs/maadCity.mp3')
 else:
-    pygame.mixer.music.load('alright.mp3')
+    pygame.mixer.music.load('songs/alright.mp3')
 
 # set up images
-playerImage = pygame.image.load('kendrickLamar.png')
+playerImage = pygame.image.load('images/kendrickLamar.png')
 playerRect = playerImage.get_rect()
-fanImage = pygame.image.load('screamingFan.png')
+fanImage = pygame.image.load('images/screamingFan.png')
 
 # show the "Start" screen
 drawText('WATCHOUT', font, windowSurface, (WINDOWWIDTH / 3), (WINDOWHEIGHT / 3))
